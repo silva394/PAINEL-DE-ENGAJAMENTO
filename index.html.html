@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Engajamento VIP</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --success: #22c55e;
+      --pix-bg: #0d9488;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 20px 10px;
+      min-height: 100vh;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .header p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .group-btn-container {
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: block;
+      width: 100%;
+      background-color: #25d366;
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .btn-group:hover {
+      background-color: #1eb957;
+    }
+
+    .pix-box {
+      background: rgba(13, 148, 136, 0.15);
+      border: 1px dashed var(--pix-bg);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .pix-box h3 {
+      color: #2dd4bf;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pix-info {
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .pix-info strong {
+      color: var(--text);
+    }
+
+    .btn-copy {
+      width: 100%;
+      padding: 8px;
+      background: var(--pix-bg);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    select, input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    select:focus, input:focus {
+      border-color: var(--primary);
+    }
+
+    .price-box {
+      background: var(--bg);
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .price-title {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .price-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--success);
+      margin-top: 4px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #f59e0b;
+      margin-top: 16px;
+      line-height: 1.4;
+      background: rgba(245, 158, 11, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="header">
+      <h1>Painel de Engajamento VIP</h1>
+      <p>Aumente suas redes sociais com rapidez e segurança</p>
+    </div>
+
+    <!-- BOTÃO DO GRUPO DE CLIENTES -->
+    <div class="group-btn-container">
+      <a href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" target="_blank" class="btn-group">
+        💬 Entrar no Grupo de Clientes
+      </a>
+    </div>
+
+    <!-- INFORMAÇÕES DE PAGAMENTO PIX -->
+    <div class="pix-box">
+      <h3>❖ Dados para Pagamento Pix</h3>
+      <div class="pix-info">
+        <strong>Chave (Telefone):</strong> <span id="pixKey">99985480596</span><br>
+        <strong>Nome:</strong> Wadres<br>
+        <strong>Banco:</strong> PicPay
+      </div>
+      <button class="btn-copy" onclick="copyPix()">Copiar Chave Pix</button>
+    </div>
+
+    <form id="orderForm">
+      <!-- REDE SOCIAL -->
+      <div class="form-group">
+        <label for="platform">1. Selecione a Rede Social:</label>
+        <select id="platform" onchange="updateServices()">
+          <option value="instagram">Instagram</option>
+          <option value="tiktok">TikTok</option>
+          <option value="kwai">Kwai</option>
+          <option value="facebook">Facebook</option>
+          <option value="youtube">YouTube</option>
+        </select>
+      </div>
+
+      <!-- TIPO DE SERVIÇO -->
+      <div class="form-group">
+        <label for="service">2. Selecione o Serviço:</label>
+        <select id="service" onchange="updateQuantities()">
+          <!-- Preenchido via JS -->
+        </select>
+      </div>
+
+      <!-- QUANTIDADE -->
+      <div class="form-group">
+        <label for="quantity">3. Quantidade desejada:</label>
+        <select id="quantity" onchange="updatePrice()">
+          <!-- Preenchido via JS -->
+        </select>
+      </div>
+
+      <!-- NOME DO PERFIL (@) OU LINK -->
+      <div class="form-group">
+        <label for="targetAccount">4. Informe o @ do seu Perfil ou Link:</label>
+        <input type="text" id="targetAccount" placeholder="Ex: @seu_usuario ou link do vídeo" required>
+      </div>
+
+      <!-- PREÇO TOTAL -->
+      <div class="price-box">
+        <div class="price-title">Total a pagar via Pix</div>
+        <div class="price-value" id="displayPrice">R$ 0,00</div>
+      </div>
+
+      <!-- ENVIAR PEDIDO -->
+      <button type="submit" class="btn-submit">Enviar Pedido & Comprovante no WhatsApp</button>
+    </form>
+
+    <div class="footer-note">
+      ⚠️ <strong>Atenção:</strong> Os seguidores e visualizações serão liberados para sua conta somente após a confirmação do pagamento do Pix pelo administrador.
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // CONFIGURAÇÕES E TABELA DE PREÇOS
+    // VALORES INICIANDO EM R$ 400,00 E CRESCENDO
+    // ==========================================
+
+    const SEU_NUMERO_WHATSAPP = "5594992029425"; // WhatsApp de atendimento
+
+    const TABELA_DE_PRECOS = {
+      instagram: {
+        "Seguidores Brasileiros": [
+          { qty: 500, price: 400.00 },
+          { qty: 1000, price: 600.00 },
+          { qty: 2000, price: 1100.00 },
+          { qty: 5000, price: 2500.00 },
+          { qty: 10000, price: 4500.00 }
+        ],
+        "Seguidores Internacionais": [
+          { qty: 500, price: 400.00 },
+          { qty: 1000, price: 550.00 },
+          { qty: 2000, price: 950.00 },
+          { qty: 5000, price: 2000.00 },
+          { qty: 10000, price: 3800.00 }
+        ],
+        "Visualizações Reels": [
+          { qty: 1000, price: 400.00 },
+          { qty: 5000, price: 900.00 },
+          { qty: 10000, price: 1500.00 },
+          { qty: 50000, price: 5000.00 }
+        ]
+      },
+      tiktok: {
+        "Seguidores": [
+          { qty: 500, price: 400.00 },
+          { qty: 1000, price: 600.00 },
+          { qty: 2000, price: 1150.00 },
+          { qty: 5000, price: 2600.00 }
+        ],
+        "Visualizações": [
+          { qty: 1000, price: 400.00 },
+          { qty: 5000, price: 950.00 },
+          { qty: 10000, price: 1600.00 }
+        ]
+      },
+      kwai: {
+        "Seguidores": [
+          { qty: 500, price: 400.00 },
+          { qty: 1000, price: 580.00 },
+          { qty: 2000, price: 1050.00 },
+          { qty: 5000, price: 2400.00 }
+        ],
+        "Visualizações": [
+          { qty: 1000, price: 400.00 },
+          { qty: 5000, price: 900.00 },
+          { qty: 10000, price: 1550.00 }
+        ]
+      },
+      facebook: {
+        "Seguidores / Curtidas Página": [
+          { qty: 500, price: 400.00 },
+          { qty: 1000, price: 600.00 },
+          { qty: 2000, price: 1100.00 },
+          { qty: 5000, price: 2500.00 }
+        ]
+      },
+      youtube: {
+        "Inscritos": [
+          { qty: 100, price: 400.00 },
+          { qty: 500, price: 900.00 },
+          { qty: 1000, price: 1500.00 },
+          { qty: 2000, price: 2700.00 },
+          { qty: 5000, price: 5500.00 }
+        ],
+        "Visualizações": [
+          { qty: 1000, price: 400.00 },
+          { qty: 5000, price: 950.00 },
+          { qty: 10000, price: 1700.00 },
+          { qty: 50000, price: 6000.00 }
+        ]
+      }
+    };
+
+    // ==========================================
+    // LÓGICA DO APLICATIVO
+    // ==========================================
+
+    const platformSelect = document.getElementById('platform');
+    const serviceSelect = document.getElementById('service');
+    const quantitySelect = document.getElementById('quantity');
+    const displayPrice = document.getElementById('displayPrice');
+    const orderForm = document.getElementById('orderForm');
+
+    function updateServices() {
+      const platform = platformSelect.value;
+      const services = Object.keys(TABELA_DE_PRECOS[platform] || {});
+
+      serviceSelect.innerHTML = '';
+      services.forEach(srv => {
+        const opt = document.createElement('option');
+        opt.value = srv;
+        opt.textContent = srv;
+        serviceSelect.appendChild(opt);
+      });
+
+      updateQuantities();
+    }
+
+    function updateQuantities() {
+      const platform = platformSelect.value;
+      const service = serviceSelect.value;
+      const options = (TABELA_DE_PRECOS[platform] && TABELA_DE_PRECOS[platform][service]) ? TABELA_DE_PRECOS[platform][service] : [];
+
+      quantitySelect.innerHTML = '';
+      options.forEach(item => {
+        const opt = document.createElement('option');
+        opt.value = item.price;
+        opt.setAttribute('data-qty', item.qty);
+        opt.textContent = `${item.qty.toLocaleString('pt-BR')} unidades → R$ ${item.price.toFixed(2).replace('.', ',')}`;
+        quantitySelect.appendChild(opt);
+      });
+
+      updatePrice();
+    }
+
+    function updatePrice() {
+      const price = parseFloat(quantitySelect.value) || 0;
+      displayPrice.textContent = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function copyPix() {
+      const pixKey = document.getElementById('pixKey').textContent;
+      navigator.clipboard.writeText(pixKey).then(() => {
+        alert('Chave Pix copiada com sucesso!');
+      });
+    }
+
+    orderForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const platform = platformSelect.options[platformSelect.selectedIndex].text;
+      const service = serviceSelect.value;
+      const selectedQtyOpt = quantitySelect.options[quantitySelect.selectedIndex];
+      const qty = selectedQtyOpt.getAttribute('data-qty');
+      const price = displayPrice.textContent;
+      const account = document.getElementById('targetAccount').value;
+
+      const mensagem = `Olá! Fiz o pedido no site e quero enviar o comprovante Pix:%0A%0A` +
+        `👤 *Perfil / Conta (@):* ${encodeURIComponent(account)}%0A` +
+        `🌐 *Rede Social:* ${platform}%0A` +
+        `⚡ *Serviço:* ${service}%0A` +
+        `🔢 *Quantidade:* ${parseInt(qty).toLocaleString('pt-BR')}%0A` +
+        `💰 *Valor Pix:* ${price}%0A%0A` +
+        `📌 *Dados onde fiz o Pix:*%0A` +
+        `Chave: 99985480596 (PicPay - Wadres)%0A%0A` +
+        `Segue em anexo o comprovante de pagamento para liberação dos seguidores/visualizações.`;
+
+      const urlWhatsApp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${mensagem}`;
+      window.open(urlWhatsApp, '_blank');
+    });
+
+    // Inicialização
+    updateServices();
+  </script>
+</body>
+</html>
